@@ -14,16 +14,12 @@ public class Main {
 
     public static void main(String[] args) throws IOException, InterruptedException {
         Terminal terminal = new UnixTerminal(System.in, System.out, Charset.defaultCharset());
-        terminal.setCursorVisible(false);
         Screen screen = new Screen(terminal);
         screen.startScreen();
         GUIScreen guiScreen = new GUIScreen(screen, "Jreddit Console");
 
-
-//        String login = TextInputDialog.showTextInputBox(guiScreen, "Login", null, null, 20);
-//        String password = TextInputDialog.showPasswordInputBox(guiScreen, "Password", null, null, 20);
-//        WaitingDialog waiting = new WaitingDialog("Logging In", "Please wait..." + login + password);
         guiScreen.showWindow(new LoginWindow(), GUIScreen.Position.CENTER);
+        screen.stopScreen();
     }
 
     private static final class LoginWindow extends Window {
@@ -35,7 +31,7 @@ public class Main {
         private LoginWindow() {
             super(TITLE);
             Label usernameLabel = new Label("Username");
-            loginBox = new NormalTextBoxFactory().createTextBox("Username", TITLE.length());
+            loginBox = new NormalTextBoxFactory().createTextBox(null, TITLE.length());
             addComponent(usernameLabel);
             addComponent(loginBox);
 
@@ -43,7 +39,7 @@ public class Main {
             addComponent(new EmptySpace(1, 1));
 
             Label passwordLabel = new Label("Password");
-            passwordBox = new PasswordTextBoxFactory().createTextBox("Password", TITLE.length());
+            passwordBox = new PasswordTextBoxFactory().createTextBox(null, TITLE.length());
             addComponent(passwordLabel);
             addComponent(passwordBox);
             addComponent(new EmptySpace(1, 1));
