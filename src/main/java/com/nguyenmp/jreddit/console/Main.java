@@ -1,20 +1,21 @@
 package com.nguyenmp.jreddit.console;
 
-import com.googlecode.lanterna.TerminalFacade;
 import com.googlecode.lanterna.gui.*;
 import com.googlecode.lanterna.gui.component.*;
 import com.googlecode.lanterna.gui.layout.LinearLayout;
+import com.googlecode.lanterna.screen.DefaultScreen;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.terminal.Terminal;
+import com.googlecode.lanterna.terminal.ansi.UnixTerminal;
 
 import java.io.IOException;
 
 public class Main {
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        Terminal terminal = TerminalFacade.createUnixTerminal();;
+        Terminal terminal = new UnixTerminal();
         terminal.setCursorVisible(false);
-        Screen screen = new Screen(terminal);
+        Screen screen = new DefaultScreen(terminal);
         screen.startScreen();
         GUIScreen guiScreen = new GUIScreen(screen, "Jreddit Console");
 
