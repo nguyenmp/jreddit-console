@@ -1,4 +1,4 @@
-package com.nguyenmp.jreddit.console;
+package console;
 
 import com.googlecode.lanterna.gui.*;
 import com.googlecode.lanterna.gui.component.*;
