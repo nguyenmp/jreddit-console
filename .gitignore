@@ -2,3 +2,4 @@
 *.jar
 .idea/
 *.iml
+console/target/
