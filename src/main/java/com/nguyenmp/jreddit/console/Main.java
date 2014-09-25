@@ -3,19 +3,19 @@ package com.nguyenmp.jreddit.console;
 import com.googlecode.lanterna.gui.*;
 import com.googlecode.lanterna.gui.component.*;
 import com.googlecode.lanterna.gui.layout.LinearLayout;
-import com.googlecode.lanterna.screen.DefaultScreen;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.terminal.Terminal;
-import com.googlecode.lanterna.terminal.ansi.UnixTerminal;
+import com.googlecode.lanterna.terminal.text.UnixTerminal;
 
 import java.io.IOException;
+import java.nio.charset.Charset;
 
 public class Main {
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        Terminal terminal = new UnixTerminal();
+        Terminal terminal = new UnixTerminal(System.in, System.out, Charset.defaultCharset());
         terminal.setCursorVisible(false);
-        Screen screen = new DefaultScreen(terminal);
+        Screen screen = new Screen(terminal);
         screen.startScreen();
         GUIScreen guiScreen = new GUIScreen(screen, "Jreddit Console");
 
