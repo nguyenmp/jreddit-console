@@ -8,13 +8,14 @@
     <name>jreddit-console</name>
     <url>http://maven.apache.org</url>
 
+    <!-- Add our git submodules here -->
     <modules>
         <module>reddit</module>
     </modules>
 
     <!-- Dependencies go in here -->
     <dependencies>
-        <!-- JUnit Dependency -->
+        <!-- Lanterna Dependency -->
         <dependency>
             <groupId>com.googlecode.lanterna</groupId>
             <artifactId>lanterna</artifactId>
@@ -29,6 +30,7 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- Internal reddit library for networking (it's a git submodule) -->
         <dependency>
             <groupId>com.nguyenmp.reddit.reddit</groupId>
             <artifactId>reddit</artifactId>
